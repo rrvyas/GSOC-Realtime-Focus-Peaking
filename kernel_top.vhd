@@ -17,18 +17,18 @@ generic (DATA_WIDTH : natural :=64);
 
     Port ( data_in   : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
            valid_in  : in  STD_LOGIC;
-			  clk       : in  STD_LOGIC;
-			  data_out : out STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); 	 
+	   clk       : in  STD_LOGIC;
+	   data_out  : out STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); 	 
 end kernel_top;
 
 architecture Behavioral of kernel_top is
 ------------------------------------------------------------------
 component RGBGr 
 Port ( data_in   : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
-           valid_in  : in  STD_LOGIC;
-			  clk       : in  STD_LOGIC;
-           data_out  : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
-           valid_out : out  STD_LOGIC);
+       valid_in  : in  STD_LOGIC;
+       clk       : in  STD_LOGIC;
+       data_out  : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
+       valid_out : out  STD_LOGIC);
 end component;
 -----------------------------------------------------------------
 component line_buffer
@@ -54,8 +54,8 @@ end component;
 ----------------------------------------------------------------
 component sobel_kernel
 Port (     P_0        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
-			  P_1        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
-			  P_2        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
+	   P_1        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
+           P_2        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_3        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_4        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_5        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
