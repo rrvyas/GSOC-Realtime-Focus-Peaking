@@ -19,17 +19,17 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity RGBGr is
 
-generic (  TWO : STD_LOGIC_VECTOR:= "000000000010";
-           SEVEN :STD_LOGIC_VECTOR:= "000000000111";
-			  SEVENTY_TWO :STD_LOGIC_VECTOR:= "000001001000";
-			  TWENTY_ONE :STD_LOGIC_VECTOR:= "000000010101";
-			  HUNDRED :STD_LOGIC_VECTOR:="000001100100";
-			  COLUMNS : natural := 720;
-			  ROWS : natural := 1024;
-			  DATA_WIDTH : natural :=64);
+generic (  TWO         : STD_LOGIC_VECTOR:= "000000000010";
+           SEVEN       :STD_LOGIC_VECTOR:= "000000000111";
+	   SEVENTY_TWO :STD_LOGIC_VECTOR:= "000001001000";
+	   TWENTY_ONE  :STD_LOGIC_VECTOR:= "000000010101";
+	   HUNDRED     :STD_LOGIC_VECTOR:="000001100100";
+	   COLUMNS     : natural := 720;
+	   ROWS        : natural := 1024;
+	   DATA_WIDTH  : natural :=64);
     Port ( data_in   : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
            valid_in  : in  STD_LOGIC;
-			  clk       : in  STD_LOGIC;
+	   clk       : in  STD_LOGIC;
            data_out  : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
            valid_out : out  STD_LOGIC);
 end RGBGr;
@@ -92,7 +92,7 @@ begin
 			Data_out(47 downto 36) <= GREY;
 			valid_out <= '1';
        else
-		   RED <= (others=>'0');
+		        RED <= (others=>'0');
 			GREEN_1 <= (others=>'0');
 			GREEN_2 <= (others=>'0');
 			BLUE <= (others=>'0');
