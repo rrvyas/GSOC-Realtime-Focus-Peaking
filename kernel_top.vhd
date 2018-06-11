@@ -8,7 +8,7 @@
 -- Project Name:   REALTIME FOCUS PEAKING
 -- Target Devices: ZYNQ(MICROZED)
 
-----------------------------------------------------------------------------------
+------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -18,7 +18,7 @@ generic (DATA_WIDTH : natural :=64);
     Port ( data_in   : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
            valid_in  : in  STD_LOGIC;
 	   clk       : in  STD_LOGIC;
-	   data_out  : out STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); 	 
+	   data_out  : out STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0)); 	 
 end kernel_top;
 
 architecture Behavioral of kernel_top is
@@ -33,12 +33,10 @@ end component;
 -----------------------------------------------------------------
 component line_buffer
 
-Port ( data_in    : in  STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0) ;
+Port ( data_in    : in  STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0) ;
        data_valid : in  STD_LOGIC;
-       clk        : in  STD_LOGIC;
-       
-		 
-		-- type ARRAY_NEIGHBOURS is array (0 to 8) of STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); 
+       clk        : in  STD_LOGIC;		 
+    -- type ARRAY_NEIGHBOURS is array (0 to 8) of STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); 
        P_0        : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
        P_1        : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
        P_2        : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
@@ -48,8 +46,7 @@ Port ( data_in    : in  STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0) ;
        P_6        : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
        P_7        : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
        P_8        : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); -- current neighbour pixel window		 
-
-		 --valid_pr   : out STD_LOGIC); -- valid flag to process the fetched pixel and its neighbours
+     --valid_pr   : out STD_LOGIC); -- valid flag to process the fetched pixel and its neighbours
 end component;
 ----------------------------------------------------------------
 component sobel_kernel
@@ -62,12 +59,11 @@ Port (     P_0        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current
            P_6        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_7        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_8        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
-
-           data_out : out STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); 	 
+           data_out   : out STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); 	 
 end component;
 --------------------------------------------------------------------
-signal RGB_valid :std_logic :='0';
-signal RGB_data  :STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
+signal RGB_valid    :   STD_LOGIC :='0';
+signal RGB_data     :   STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
 signal P_0_i        :   STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
 signal P_1_i        :   STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
 signal P_2_i        :   STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
