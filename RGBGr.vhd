@@ -90,7 +90,7 @@ begin
 			Data_out(35 downto 24) <= BLUE;
 			Data_out(47 downto 36) <= GREY;
 			valid_out <= '1';
-        else
+                 else
 		        RED <= (others => '0');
 			GREEN_1 <= (others => '0');
 			GREEN_2 <= (others => '0');
