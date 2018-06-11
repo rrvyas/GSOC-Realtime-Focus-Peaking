@@ -20,13 +20,13 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity sobel_kernel is
 generic (  COLUMNS : natural := 720;
-			  THRESHOLD : natural := 200;
-			  ROWS : natural := 1024;
-			  ONE : std_logic_vector := "000000000001";
-			  DATA_WIDTH : natural :=64);
+	 THRESHOLD : natural := 200;
+	      ROWS : natural := 1024;
+	       ONE : std_logic_vector := "000000000001";
+	DATA_WIDTH : natural :=64);
     Port ( P_0        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
-			  P_1        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
-			  P_2        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
+	   P_1        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
+	   P_2        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_3        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_4        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_5        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
@@ -34,11 +34,11 @@ generic (  COLUMNS : natural := 720;
            P_7        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
            P_8        : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0); -- current neighbour pixel window		 
 
-       --    clk : in  STD_LOGIC;
+        --   clk      : in  STD_LOGIC;
         --   valid_in : in  STD_LOGIC;
 			  
-           data_out : out STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); 	 
-         --  valid_out : out  STD_LOGIC);
+             data_out : out STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)); 	 
+        --  valid_out : out  STD_LOGIC);
 end sobel_kernel;
 
 architecture Behavioral of sobel_kernel is
@@ -99,7 +99,7 @@ begin
 
 --{-2 -1 0
 -- -1 0 1
---	0 1 2}
+-- 0 1 2}
 
 P_0_0 <= not((P_0(46 downto 36) & '0'))+ONE; --left shift and 2's compliment ==> multiply by -2
 P_1_0 <= not(P_1(47 downto 36))+ONE; -- 2's compliment ==> multiply by -1
@@ -113,7 +113,7 @@ P_8_0 <= P_8(46 downto 36) & '0'; -- left shift ==> multiply by 2
 
 --{-1 -2 -1
 -- 0 0 0
---	1 2 1}
+-- 1 2 1}
 
 P_0_1 <= not(P_0(47 downto 36))+ONE; 
 P_1_1 <= not(P_1(46 downto 36) & '0')+ONE; 
@@ -127,7 +127,7 @@ P_8_1 <= P_8(47 downto 36);
 
 --{-1 0 1
 -- -2 0 2
---	-1 0 1}
+-- -1 0 1}
 P_0_2 <= not(P_0(47 downto 36))+ONE; 
 P_1_2 <= (others => '0');  
 P_2_2 <= P_2(47 downto 36);
