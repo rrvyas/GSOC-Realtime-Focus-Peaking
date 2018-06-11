@@ -9,7 +9,8 @@
 -- Target Devices: ZYNQ(MICROZED)
 -- Description : This VHDL module applies sobel filter on the incoming pixel 
 --               window and streams out peaking pixel based on threshold
-----------------------------------------------------------------------------------library IEEE;
+----------------------------------------------------------------------------------
+library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
