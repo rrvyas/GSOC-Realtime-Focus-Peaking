@@ -19,36 +19,36 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity RGBGr is
 
-generic (  TWO         : STD_LOGIC_VECTOR:= "000000000010";
-           SEVEN       : STD_LOGIC_VECTOR:= "000000000111";
-	   SEVENTY_TWO : STD_LOGIC_VECTOR:= "000001001000";
-	   TWENTY_ONE  : STD_LOGIC_VECTOR:= "000000010101";
-	   HUNDRED     : STD_LOGIC_VECTOR:= "000001100100";
+generic (  TWO         : STD_LOGIC_VECTOR := "000000000010";
+           SEVEN       : STD_LOGIC_VECTOR := "000000000111";
+	   SEVENTY_TWO : STD_LOGIC_VECTOR := "000001001000";
+	   TWENTY_ONE  : STD_LOGIC_VECTOR := "000000010101";
+	   HUNDRED     : STD_LOGIC_VECTOR := "000001100100";
 	   COLUMNS     : natural := 720;
 	   ROWS        : natural := 1024;
-	   DATA_WIDTH  : natural :=64);
-    Port ( data_in   : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
+	   DATA_WIDTH  : natural := 64);
+    Port ( data_in   : in  STD_LOGIC_VECTOR (DATA_WIDTH -1 downto 0);
            valid_in  : in  STD_LOGIC;
 	   clk       : in  STD_LOGIC;
-           data_out  : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
+           data_out  : out  STD_LOGIC_VECTOR (DATA_WIDTH -1 downto 0);
            valid_out : out  STD_LOGIC);
 end RGBGr;
 
 architecture Behavioral of RGBGr is
 
-signal RED     : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
-signal GREEN_1 : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
-signal GREEN_2 : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
-signal BLUE    : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
-signal GREY    : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
-signal GREEN   : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
+	signal RED     : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
+	signal GREEN_1 : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
+	signal GREEN_2 : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
+	signal BLUE    : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
+	signal GREY    : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
+	signal GREEN   : STD_LOGIC_VECTOR(11 downto 0) := (others => '0');
 
-signal RED_int     : integer range 0 to 4095 := 0;
-signal GREEN_int_1 : integer range 0 to 4095 := 0;
-signal GREEN_int_2 : integer range 0 to 4095 := 0;
-signal GREEN_int   : integer range 0 to 4095 := 0;
-signal BLUE_int    : integer range 0 to 4095 := 0;
-signal GREY_int    : integer range 0 to 4095 := 0;
+	signal RED_int     : integer range 0 to 4095 := 0;
+	signal GREEN_int_1 : integer range 0 to 4095 := 0;
+	signal GREEN_int_2 : integer range 0 to 4095 := 0;
+	signal GREEN_int   : integer range 0 to 4095 := 0;
+	signal BLUE_int    : integer range 0 to 4095 := 0;
+	signal GREY_int    : integer range 0 to 4095 := 0;
 
 begin
 
@@ -91,18 +91,18 @@ begin
 			Data_out(47 downto 36) <= GREY;
 			valid_out <= '1';
         else
-		        RED <= (others=>'0');
-			GREEN_1 <= (others=>'0');
-			GREEN_2 <= (others=>'0');
-			BLUE <= (others=>'0');
+		        RED <= (others => '0');
+			GREEN_1 <= (others => '0');
+			GREEN_2 <= (others => '0');
+			BLUE <= (others => '0');
 			RED_int <= 0;
 			GREEN_int_1 <= 0;
 			GREEN_int_2 <= 0;
 			BLUE_int <= 0;
 			GREY_int <= 0;
-			GREEN <= (others=>('0'));
-			GREY <= (others=>('0'));
-			Data_out <= (others=>'0');
+			GREEN <= (others => ('0'));
+			GREY <= (others => ('0'));
+			Data_out <= (others => '0');
 			valid_out <= '0';
 		end if;	
 	end if;
