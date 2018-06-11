@@ -15,8 +15,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity line_buffer is
 generic (  COLUMNS : natural := 720;
-			  ROWS : natural := 1024;
-			  DATA_WIDTH : natural :=64);
+	      ROWS : natural := 1024;
+	DATA_WIDTH : natural :=64);
 			  
 Port ( data_in    : in  STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0) ;
        data_valid : in  STD_LOGIC;
