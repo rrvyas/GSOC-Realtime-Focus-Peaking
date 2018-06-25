@@ -15,8 +15,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity line_buffer is
 generic (  COLUMNS : natural := 720;
-			  ROWS : natural := 1024;
-			  DATA_WIDTH : natural :=64);
+	      ROWS : natural := 1024;
+	DATA_WIDTH : natural :=64);
 			  
 Port ( data_in    : in  STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0) ;
        data_valid : in  STD_LOGIC;
@@ -85,10 +85,10 @@ if rising_edge(clk) then
 		end if;
 			
 	---------------------------------------------------------	
-		if	c_cntr = (COLUMNS - 1) then -- End of line	
+		if c_cntr = (COLUMNS - 1) then -- End of line	
 			c_cntr <= 0;-- reset the column counter
 			if l_cntr = (ROWS - 1) then -- End of Frame
-				l_cntr <= 0;
+			   l_cntr <= 0;
 			else
 			   l_cntr <= l_cntr+1; --increment the line counter
 			end if;	
