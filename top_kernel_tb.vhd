@@ -1,30 +1,19 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   00:14:28 08/04/2018
--- Design Name:   
--- Module Name:   /home/pdp/Desktop/gsoc_3/tbbbbtnt.vhd
--- Project Name:  gsoc_3
--- Target Device:  
--- Tool versions:  
--- Description:   
+----------------------------------------------------------------------------------
+-- Company: APERTUS (GOOGLE SUMMER OF CODE - 2018)
+-- Engineer: RAHUL VYAS
 -- 
--- VHDL Test Bench Created by ISE for module: kernel_top
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+-- Create Date:    00:50:43 06/11/2018 
+-- Design Name:    top_kernel test bench 
+-- Module Name:    top_kernel test bench - Behavioral 
+-- Project Name:   REALTIME FOCUS PEAKING
+-- Target Devices: ZYNQ(MICROZED)
+-- Description : This VHDL module simulates streamed in pixel values and shows the coressponding peaking information
+-----------------------------------------------------------------------------------
+-- This program is free software: you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation, either version
+-- 2 of the License, or (at your option) any later version.
+----------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
@@ -55,7 +44,7 @@ ARCHITECTURE behavior OF top_kernel_tb IS
    signal data_in : std_logic_vector(63 downto 0) := (others => '0');
    signal valid_in : std_logic := '0';
    signal clk : std_logic := '0';
-	signal peaking_flag : std_logic := '0';
+   signal peaking_flag : std_logic := '0';
  	--Outputs
    signal valid_out : std_logic;
    signal data_out : std_logic_vector(64 downto 0);
@@ -89,8 +78,8 @@ BEGIN
    stim_proc: process
    begin		
  wait for clk_period*10;
-		valid_in <= '1';
---
+	  valid_in <= '1';
+---
       --wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
 
@@ -106,7 +95,7 @@ BEGIN
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
 
--------
+---
 
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
@@ -122,7 +111,7 @@ BEGIN
 
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
---------
+---
 
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
@@ -140,7 +129,7 @@ BEGIN
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
 
 
------------
+---
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
 
@@ -172,13 +161,7 @@ BEGIN
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
       
       wait for clk_period;
-		
-
-
-
-      -- insert stimulus here 
-valid_in <= '0'; data_in <= (others => '0');
-    --  wait for 500 ns;
+      valid_in <= '0'; data_in <= (others => '0');
    end process;
 
 END;
