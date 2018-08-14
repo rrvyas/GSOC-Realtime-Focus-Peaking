@@ -1,6 +1,6 @@
 # GSOC-Realtime-Focus-Peaking
-The VHDL kernel implements Realtime focus peaking algorithm on a stream if incoming pixels \n
-(1) GSOC_18_rahul_vyas.pdf gives a detailed description of the project \n
+The VHDL kernel implements Realtime focus peaking algorithm on a stream if incoming pixels 
+(1) GSOC_18_rahul_vyas.pdf gives a detailed description of the project <br/>
 (2) kernel_top.vhd is the top level module of the focus peaking module
 (3) line_buffer_one_two.vhd is the vhdl entity for line buffer module
 (4) line_buffer_test.vhd is the test bench for line buffer module
