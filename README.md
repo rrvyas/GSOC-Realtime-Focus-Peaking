@@ -1,5 +1,5 @@
 # GSOC-Realtime-Focus-Peaking
-The VHDL kernel implements Realtime focus peaking algorithm on a stream if incoming pixels <br/>
+The VHDL kernel implements Realtime focus peaking algorithm on a stream of incoming pixels <br/>
 Project overview: https://medium.com/@rahul.vinus/google-summer-of-code-2018-c65625c65f97  <br/>
 (1) GSOC_18_rahul_vyas.pdf gives a detailed description of the project <br/>
 (2) kernel_top.vhd is the top level module of the focus peaking module<br/>
