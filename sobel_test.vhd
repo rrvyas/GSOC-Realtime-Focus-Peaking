@@ -1,30 +1,3 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   18:20:57 07/01/2018
--- Design Name:   
--- Module Name:   /home/pdp/Desktop/gsoc_3/sobel_tb.vhd
--- Project Name:  gsoc_3
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: sobel_kernel
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
