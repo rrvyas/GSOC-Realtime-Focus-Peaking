@@ -1,30 +1,19 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   15:29:52 06/24/2018
--- Design Name:   
--- Module Name:   /home/pdp/Desktop/gsoc_3/tb2.vhd
--- Project Name:  gsoc_3
--- Target Device:  
--- Tool versions:  
--- Description:   
+----------------------------------------------------------------------------------
+-- Company: APERTUS (GOOGLE SUMMER OF CODE - 2018)
+-- Engineer: RAHUL VYAS
 -- 
--- VHDL Test Bench Created by ISE for module: line_buffer
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+-- Create Date:    00:50:43 06/11/2018 
+-- Design Name:    Line buffer test bench 
+-- Module Name:    Line buffer test bench - Behavioral 
+-- Project Name:   REALTIME FOCUS PEAKING
+-- Target Devices: ZYNQ(MICROZED)
+-- Description : This VHDL module simulates streamed in pixel values and shows the coressponding window pixels.
+-----------------------------------------------------------------------------------
+-- This program is free software: you can redistribute it and/or
+-- modify it under the terms of the GNU General Public License
+-- as published by the Free Software Foundation, either version
+-- 2 of the License, or (at your option) any later version.
+----------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
@@ -44,7 +33,7 @@ ARCHITECTURE behavior OF tb2 IS
          data_in : IN  std_logic_vector(63 downto 0);
          data_valid : IN  std_logic;
          clk : IN  std_logic;
-			data_valid_out : out std_logic;
+	 data_valid_out : out std_logic;
          P_0 : OUT  std_logic_vector(63 downto 0);
          P_1 : OUT  std_logic_vector(63 downto 0);
          P_2 : OUT  std_logic_vector(63 downto 0);
@@ -63,7 +52,7 @@ ARCHITECTURE behavior OF tb2 IS
    signal data_valid : std_logic := '0';
    signal clk : std_logic := '0';
 
- 	--Outputs
+   --Outputs
    signal P_0 : std_logic_vector(63 downto 0);
    signal P_1 : std_logic_vector(63 downto 0);
    signal P_2 : std_logic_vector(63 downto 0);
@@ -79,7 +68,7 @@ ARCHITECTURE behavior OF tb2 IS
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+   -- Instantiate the Unit Under Test (UUT)
    uut: line_buffer PORT MAP (
           data_in => data_in,
           data_valid => data_valid,
@@ -94,7 +83,6 @@ BEGIN
           P_7 => P_7,
           P_8 => P_8
         );
-
    -- Clock process definitions
    clk_process :process
    begin
@@ -104,17 +92,12 @@ BEGIN
 		wait for clk_period/2;
    end process;
  
-
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
-     -- wait for 100 ns;	
 
-     -- wait for clk_period*2;
-		--data_in <= "0000000000000000000000000000000000000000000000000000000000001111";
       wait for clk_period*10;
-		data_valid <= '1';
+	   data_valid <= '1';
 
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
@@ -130,9 +113,7 @@ BEGIN
 
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
-
--------
-
+---
       wait for clk_period;
 
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
@@ -148,8 +129,7 @@ BEGIN
 
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
---------
-
+---
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
 
@@ -165,8 +145,7 @@ BEGIN
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
 
-
------------
+---
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000000011111";
 
@@ -197,12 +176,7 @@ BEGIN
       wait for clk_period;
 	   data_in <= "0000000000001000000000100000000000100000000000010000000001011111";
 
-
-
-
-      -- insert stimulus here 
-data_valid <= '0';
-    --  wait for 500 ns;
+   data_valid <= '0';
    end process;
 
 END;
